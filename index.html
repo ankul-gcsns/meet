@@ -28,11 +28,12 @@
     
   <body> 
       <script>
-        window.getJoiningUrl() {
+        var x = document.getElementById("video-frame");
+        x.contentWindow.getJoiningUrl() {
           return "http://video.tutorsea.com/dfsdfasgdsgadfds?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7InVzZXIiOnsibmFtZSI6Ikludml0ZWQgVXNlciJ9fSwiYXVkIjoiYXBwX2lkIiwiaXNzIjoiYXBwX2lkIiwicm9vbSI6ImRmc2RmYXNnZHNnYWRmZHMifQ.-zKF-GOBjhfnKYWo8R_AOLcnd7OOiFEj8y2fGQIiDuU";
         }
       </script>
-      <iframe 
+      <iframe id="video-frame"
               allow="microphone; camera"
               src="https://video.tutorsea.com/dfsdfasgdsgadfds?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7InVzZXIiOnsibmFtZSI6IkpvaG4gRG9lIn19LCJhdWQiOiJhcHBfaWQiLCJpc3MiOiJhcHBfaWQiLCJyb29tIjoiZGZzZGZhc2dkc2dhZGZkcyJ9.iOGdZRxW1JZSCeswAdA948no1vPKO29Y5YeSlomm_S4"
               frameborder="0" 
