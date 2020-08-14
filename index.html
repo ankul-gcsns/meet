@@ -27,7 +27,32 @@
   </head> 
     
   <body> 
-      <script>
+          <script src='https://video.tutorsea.com/external_api.js'></script>
+          
+     <script>
+       const domain = 'video.tutorsea.com';
+       const yourRoomPass = "pwd123";
+const options = {
+    roomName: 'dfsdfasgdsgadfds',
+    jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7InVzZXIiOnsibmFtZSI6IkpvaG4gRG9lIn19LCJhdWQiOiJhcHBfaWQiLCJpc3MiOiJhcHBfaWQiLCJyb29tIjoiZGZzZGZhc2dkc2dhZGZkcyJ9.iOGdZRxW1JZSCeswAdA948no1vPKO29Y5YeSlomm_S4",
+};
+const api = new JitsiMeetExternalAPI(domain, options);
+       setTimeout(() => {
+// why timeout: I got some trouble calling event listeners without setting a timeout :)
+
+    // when local user is trying to enter in a locked room 
+    api.addEventListener('passwordRequired', () => {
+        api.executeCommand('password', yourRoomPass);
+    });
+
+    // when local user has joined the video conference 
+    api.addEventListener('videoConferenceJoined', (response) => {
+        api.executeCommand('password', yourRoomPass);
+    });
+
+}, 10);
+    </script>
+<!--       <script>
         var x = document.getElementById("video-frame");
         x.contentWindow.getJoiningUrl() {
           return "http://video.tutorsea.com/dfsdfasgdsgadfds?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7InVzZXIiOnsibmFtZSI6Ikludml0ZWQgVXNlciJ9fSwiYXVkIjoiYXBwX2lkIiwiaXNzIjoiYXBwX2lkIiwicm9vbSI6ImRmc2RmYXNnZHNnYWRmZHMifQ.-zKF-GOBjhfnKYWo8R_AOLcnd7OOiFEj8y2fGQIiDuU";
@@ -42,6 +67,6 @@
               width="100%" 
               height="100%" 
               scrolling="auto"> 
-    </iframe>
+    </iframe> -->
   </body> 
   </html>
